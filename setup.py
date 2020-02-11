@@ -31,7 +31,6 @@ setup(
         "ufo2ft>=0.5.3",
         "booleanOperations>=0.7.0",
         "hsluv>=0.0.2",
-        "brotli>=0.5.2",
     ],
     platforms=["Linux", "Win32", "Mac OS X"],
     classifiers=[

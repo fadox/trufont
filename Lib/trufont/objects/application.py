@@ -204,7 +204,18 @@ class Application(QApplication):
         # maybe add helper function that filters topLevelWidgets into windows
         # bc we need this in a few places
 
+        fontamentalMenu = menuBar.fetchMenu(Entries.Fontamental)
+        fontamentalMenu.fetchAction(
+            Entries.Fontamental_Documentation,
+            lambda: QDesktopServices.openUrl(
+                QUrl("http://trufont.github.io/")))
+        fontamentalMenu.addSeparator()
+
+
+
         helpMenu = menuBar.fetchMenu(Entries.Help)
+
+
         helpMenu.fetchAction(
             Entries.Help_Documentation,
             lambda: QDesktopServices.openUrl(

@@ -41,6 +41,8 @@ class MenuBar(QMenuBar):
             return child
         # spawn
         menu = Menu(title, self)
+        if title == "F&ontamental":
+            m = 1
         if self.shouldSpawnElements():
             self.addMenu(menu)
         return menu
@@ -158,6 +160,9 @@ class Entries(object):
     Window_Properties = "&Properties"
     Window_Output = "&Output"
 
+    Fontamental = "F&ontamental"
+    Fontamental_Documentation = "&Documentation"
+
     Help = "&Help"
     Help_Documentation = "&Documentation"
     Help_Report_An_Issue = "&Report an Issue"
@@ -212,6 +217,11 @@ _shortcuts = {
 
 def globalMenuBar():
     menuBar = MenuBar()
+
+    fontamentalMenu = menuBar.fetchMenu(Entries.Fontamental)
+    fontamentalMenu.fetchAction(Entries.Fontamental_Documentation)
+    fontamentalMenu.addSeparator()
+
     fileMenu = menuBar.fetchMenu(Entries.File)
     fileMenu.fetchAction(Entries.File_New)
     fileMenu.fetchAction(Entries.File_Open)
@@ -285,6 +295,8 @@ def globalMenuBar():
     windowMenu.fetchAction(Entries.Window_Properties)
     windowMenu.addSeparator()
     windowMenu.fetchAction(Entries.Window_Output)
+
+
 
     helpMenu = menuBar.fetchMenu(Entries.Help)
     helpMenu.fetchAction(Entries.Help_Documentation)
